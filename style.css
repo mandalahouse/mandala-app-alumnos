@@ -486,15 +486,15 @@ textarea:focus {
   border-radius: 4px; padding: 2px 7px;
   flex-shrink: 0; font-weight: 500;
 }
-.dinputs { display: flex; gap: 5px; flex: 1; }
+.dinputs { display: flex; flex-direction: column; gap: 5px; flex: 1; }
 .dinput {
-  flex: 1; background: #fff;
+  background: #fff;
   border: 1.5px solid var(--accent);
   border-radius: 7px;
-  padding: 5px 7px;
-  display: flex; align-items: center; gap: 4px; min-width: 0;
+  padding: 6px 8px;
+  display: flex; align-items: center; gap: 6px; min-width: 0;
 }
-.dinput i { font-size: 18.7px; color: #1a6a80; flex-shrink: 0; }
+.dinput i { font-size: 16px; color: #1a6a80; flex-shrink: 0; }
 .dinput input {
   border: none; background: transparent; outline: none;
   font-family: 'IBM Plex Mono', monospace;
