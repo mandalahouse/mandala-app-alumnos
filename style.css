@@ -292,25 +292,139 @@ html, body {
   margin-bottom: 7px; display: block;
 }
 
+/* ── QCQ hero ── */
+.qcq-hero {
+  padding: 14px 14px 10px;
+  border-top: 1px solid var(--bg3);
+  border-bottom: 1px solid var(--bg3);
+  background: #07111e;
+}
+.qcq-title {
+  display: flex; align-items: baseline; gap: 8px;
+  flex-wrap: wrap;
+}
+.qcq-word {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 36px; font-weight: 900;
+  color: var(--text2);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.qcq-word.acc { color: var(--accent); }
+.qcq-sep {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px; color: var(--accent);
+  opacity: 0.4; line-height: 1;
+}
+
+/* ── Field headers ── */
+.field-header {
+  display: flex; align-items: center;
+  gap: 10px; margin-bottom: 10px;
+}
+.field-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  color: var(--accent); letter-spacing: 1px;
+  background: rgba(30,203,168,0.1);
+  border: 1px solid rgba(30,203,168,0.25);
+  border-radius: 5px;
+  padding: 2px 7px;
+  flex-shrink: 0;
+}
+.field-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 21px; font-weight: 700;
+  color: var(--text);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+/* ── Plan banner ── */
+.plan-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #0d2e28 0%, #07201a 100%);
+  border: 1.5px solid var(--accent);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.plan-banner::before {
+  content: 'PLAN';
+  position: absolute;
+  right: -4px; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 56px; font-weight: 900;
+  color: var(--accent); opacity: 0.07;
+  pointer-events: none; line-height: 1;
+  letter-spacing: -1px;
+}
+.plan-banner-left {
+  width: 42px; height: 42px;
+  background: var(--accent);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.plan-banner-left i {
+  font-size: 22px;
+  color: var(--dark);
+}
+.plan-banner-body {
+  display: flex; flex-direction: column; gap: 3px;
+  flex: 1; min-width: 0;
+}
+.plan-banner-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px; font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.plan-banner-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px; color: rgba(30,203,168,0.65);
+  line-height: 1.45;
+}
+.plan-banner-arrow {
+  font-size: 20px;
+  color: var(--accent);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
 /* ── Textarea ── */
 textarea {
   width: 100%;
-  background: #fff;
-  border: 2px solid var(--accent);
+  background: #07111e;
+  border: 1.5px solid rgba(30,203,168,0.25);
   border-radius: 10px;
   padding: 10px 12px;
   resize: none;
   font-family: 'Barlow', sans-serif;
-  font-size: 18px; color: var(--dark);
-  -webkit-text-fill-color: var(--dark);
+  font-size: 18px;
+  color: var(--text2);
+  -webkit-text-fill-color: var(--text2);
   line-height: 1.6; outline: none;
+  transition: border-color 0.15s;
 }
 textarea::placeholder {
-  color: #7aaabb;
-  -webkit-text-fill-color: #7aaabb;
+  color: var(--muted);
+  -webkit-text-fill-color: var(--muted);
   font-style: italic; font-size: 16.5px;
 }
-textarea:focus { background: #f0fcfa; }
+textarea:focus {
+  background: #0a1828;
+  border-color: var(--accent);
+}
 
 /* ── Stepper ── */
 .days-row {
