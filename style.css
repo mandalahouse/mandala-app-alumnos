@@ -13,7 +13,7 @@
   --accent-dim: rgba(30,203,168,0.35);
   --text:   #e0f8f3;
   --text2:  #c8eee8;
-  --muted:  #2a5a70;
+  --muted:  #4ca9d4;
   --dark:   #060e18;
 }
 
@@ -429,8 +429,8 @@ textarea {
   transition: border-color 0.15s;
 }
 textarea::placeholder {
-  color: var(--muted);
-  -webkit-text-fill-color: var(--muted);
+  color: #7aaabb;
+  -webkit-text-fill-color: #7aaabb;
   font-style: italic; font-size: 18.7px;
 }
 textarea:focus {
@@ -555,7 +555,7 @@ textarea:focus {
 .prog-lbl {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11.9px; letter-spacing: 2px;
-  text-transform: uppercase; color: rgba(30,203,168,.4);
+  text-transform: uppercase; color: #1ecba8;
 }
 .prog-num {
   font-family: 'IBM Plex Mono', monospace;
