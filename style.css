@@ -105,7 +105,7 @@ html, body {
   text-transform: uppercase;
   line-height: 1;
 }
-.wordmark .dim { opacity: .55; }
+.wordmark .dim { opacity: 1; }
 .topnav-sub {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13.6px; color: var(--muted);
@@ -281,7 +281,7 @@ html, body {
 }
 .csub {
   font-family: 'Barlow', sans-serif;
-  font-size: 17px; color: var(--muted); line-height: 1.5;
+  font-size: 18px; color: var(--muted); line-height: 1.5;
 }
 .fblock { padding: 10px 14px 12px; border-top: 1px solid var(--bg3); }
 .fblock:first-of-type { border-top: none; }
@@ -344,7 +344,7 @@ html, body {
 .field-title.acc { color: var(--accent); }
 .field-caption {
   font-family: 'Barlow', sans-serif;
-  font-size: 14.73px;
+  font-size: 18px;
   color: var(--muted);
   line-height: 1.5;
   margin-bottom: 0;
