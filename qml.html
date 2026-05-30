@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Mandala — ¿Qué Me Llevo?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="screen">
+  <div class="screen-inner">
+
+    <div class="sbar">
+      <span class="stime">09:41</span>
+      <div class="sicons"><div class="sb"></div><div class="sb"></div><div class="sb"></div></div>
+    </div>
+
+    <div class="topnav">
+      <a class="back-btn" href="index.html"><i class="ti ti-arrow-left"></i></a>
+      <span class="wordmark"><span class="dim">MANDALA </span>ENSAMBLES</span>
+      <button class="save-btn" id="saveBtn">Guardar</button>
+    </div>
+
+    <div class="body">
+
+      <!-- Page hero -->
+      <div class="page-hero">
+        <div class="hero-ghost">QML</div>
+        <div style="position:relative;z-index:1">
+          <div class="page-tag">
+            <div class="tag-dot"></div>
+            <span class="tag-txt">registro de clase</span>
+          </div>
+          <div class="page-title">¿QUÉ<br>ME LLEVO<span class="acc">?</span></div>
+        </div>
+        <div class="date-chip">
+          <span class="dc-date" id="dateDisplay">—</span>
+          <span class="dc-edit" id="dateEditToggle">editar</span>
+        </div>
+      </div>
+      <input type="date" id="hiddenDate">
+
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-head">
+          <div class="cnum">1</div>
+          <div>
+            <div class="ctitle">Reflexiones de la clase</div>
+            <div class="csub">Ideas, insights, conceptos, dudas, descubrimientos...</div>
+          </div>
+        </div>
+        <div class="fblock">
+          <textarea rows="5" placeholder="Hoy descubrí que cuando toco más lento puedo escuchar mejor la afinación..."></textarea>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-head">
+          <div class="cnum">2</div>
+          <div>
+            <div class="ctitle">Práctica enfocada</div>
+            <div class="csub">Transformá lo aprendido en un plan semanal concreto</div>
+          </div>
+        </div>
+        <div class="fblock">
+          <span class="flabel">Qué voy a practicar</span>
+          <textarea rows="3" placeholder="Ej: Las primeras 8 barras del estudio nº3..."></textarea>
+        </div>
+        <div class="fblock">
+          <span class="flabel">Cómo lo voy a practicar</span>
+          <textarea rows="3" placeholder="Ej: Con metrónomo a 60 bpm, primero mano derecha..."></textarea>
+        </div>
+        <div class="fblock">
+          <div class="days-row">
+            <span class="dlabel">Días de práctica esta semana</span>
+            <div class="stepper">
+              <button class="sbtn" onclick="changeDays(-1)">−</button>
+              <span class="sval" id="daysVal">3</span>
+              <button class="sbtn" onclick="changeDays(1)">+</button>
+            </div>
+          </div>
+          <div class="day-rows" id="dayRows"></div>
+          <div class="prog-card">
+            <div class="prog-icon"><i class="ti ti-chart-bar"></i></div>
+            <div style="flex:1;min-width:0">
+              <div class="prog-top2">
+                <span class="prog-lbl">// Cumplimiento semanal</span>
+                <span class="prog-num" id="progText"><span>0</span> / 3</span>
+              </div>
+              <div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a class="ni" href="index.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="#"><i class="ti ti-search"></i><div class="ni-dot"></div></a>
+      <a class="ni on" href="qml.html"><i class="ti ti-notebook"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
+    </nav>
+
+  </div>
+</div>
+
+<script>
+  let days = 3, checked = {};
+
+  function todayStr() {
+    const d = new Date();
+    return String(d.getDate()).padStart(2,'0') + ' / ' + String(d.getMonth()+1).padStart(2,'0') + ' / ' + d.getFullYear();
+  }
+
+  function renderDate() {
+    document.getElementById('dateDisplay').textContent = todayStr();
+    document.getElementById('hiddenDate').value = new Date().toISOString().split('T')[0];
+  }
+
+  function renderDays() {
+    const c = document.getElementById('dayRows');
+    c.innerHTML = '';
+    for (let i = 1; i <= days; i++) {
+      const done = !!checked[i];
+      const div = document.createElement('div');
+      div.className = 'drow' + (done ? ' done' : '');
+      div.id = 'dr' + i;
+      div.innerHTML =
+        '<div class="drow-top">' +
+          '<span class="dtag">Día ' + i + '</span>' +
+          '<div class="dinputs">' +
+            '<div class="dinput"><i class="ti ti-calendar"></i><input type="date" placeholder="fecha"></div>' +
+            '<div class="dinput"><i class="ti ti-clock"></i><input type="time" placeholder="hora"></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="check-row">' +
+          '<div class="chkbox' + (done ? ' on' : '') + '" id="cb' + i + '" onclick="toggle(' + i + ')">' +
+            '<i class="ti ti-check"></i>' +
+          '</div>' +
+          '<span class="chklabel">' + (done ? 'Práctica realizada ✓' : 'Práctica realizada') + '</span>' +
+          '<span class="chktime" id="ct' + i + '">' + (done && checked[i] ? checked[i] : '') + '</span>' +
+        '</div>';
+      c.appendChild(div);
+    }
+    updateProg();
+  }
+
+  function changeDays(d) {
+    days = Math.min(7, Math.max(1, days + d));
+    document.getElementById('daysVal').textContent = days;
+    for (let k in checked) { if (parseInt(k) > days) delete checked[k]; }
+    renderDays();
+  }
+
+  function toggle(i) {
+    if (checked[i]) { delete checked[i]; }
+    else {
+      const n = new Date();
+      checked[i] = String(n.getHours()).padStart(2,'0') + ':' + String(n.getMinutes()).padStart(2,'0');
+    }
+    const row = document.getElementById('dr' + i);
+    const box = document.getElementById('cb' + i);
+    const ct  = document.getElementById('ct' + i);
+    const lbl = row.querySelector('.chklabel');
+    if (checked[i]) {
+      row.classList.add('done'); box.classList.add('on');
+      lbl.textContent = 'Práctica realizada ✓'; ct.textContent = checked[i];
+    } else {
+      row.classList.remove('done'); box.classList.remove('on');
+      lbl.textContent = 'Práctica realizada'; ct.textContent = '';
+    }
+    updateProg();
+  }
+
+  function updateProg() {
+    const done = Object.keys(checked).filter(k => parseInt(k) <= days).length;
+    const pct = days > 0 ? Math.round(done / days * 100) : 0;
+    document.getElementById('progFill').style.width = pct + '%';
+    document.getElementById('progText').innerHTML = '<span>' + done + '</span> / ' + days;
+  }
+
+  document.getElementById('dateEditToggle').addEventListener('click', function() {
+    const inp = document.getElementById('hiddenDate');
+    inp.style.display = inp.style.display === 'none' || inp.style.display === '' ? 'block' : 'none';
+    if (inp.style.display === 'block') inp.focus();
+  });
+
+  document.getElementById('hiddenDate').addEventListener('change', function() {
+    const [y,m,d] = this.value.split('-');
+    document.getElementById('dateDisplay').textContent = d + ' / ' + m + ' / ' + y;
+    this.style.display = 'none';
+  });
+
+  document.getElementById('saveBtn').addEventListener('click', function() {
+    this.textContent = '✓ Guardado';
+    setTimeout(() => this.textContent = 'Guardar', 1800);
+  });
+
+  renderDate();
+  renderDays();
+</script>
+</body>
+</html>

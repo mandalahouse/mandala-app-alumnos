@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Mandala — Perfil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="screen">
+  <div class="screen-inner">
+
+    <div class="sbar">
+      <span class="stime">09:41</span>
+      <div class="sicons"><div class="sb"></div><div class="sb"></div><div class="sb"></div></div>
+    </div>
+
+    <div class="topnav">
+      <div style="flex:1">
+        <div class="wordmark"><span class="dim">MANDALA </span>PERFIL</div>
+        <div class="topnav-sub">datos y progreso</div>
+      </div>
+      <button class="outline-btn">Editar</button>
+    </div>
+
+    <div class="body">
+
+      <!-- Avatar -->
+      <div class="hero" style="display:flex;align-items:center;gap:14px">
+        <div class="hero-ghost">PRF</div>
+        <div class="avatar"><i class="ti ti-user"></i></div>
+        <div style="position:relative;z-index:1">
+          <div class="pname">NOMBRE<br><span class="acc">ALUMNO</span></div>
+          <div class="pemail">alumno@email.com</div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">24</div>
+          <div class="stat-lbl">Clases totales</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">18</div>
+          <div class="stat-lbl">QML registrados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">72%</div>
+          <div class="stat-lbl">% prácticas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">11</div>
+          <div class="stat-lbl">Semanas activas</div>
+        </div>
+      </div>
+
+      <!-- Materias -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="ctitle">Materias</div>
+          </div>
+        </div>
+        <div class="mat-row">
+          <div class="mat-ico"><i class="ti ti-music"></i></div>
+          <span class="mat-name">Guitarra clásica</span>
+          <i class="ti ti-chevron-right" style="font-size:14px;color:var(--muted)"></i>
+        </div>
+        <div class="mat-row">
+          <div class="mat-ico"><i class="ti ti-music"></i></div>
+          <span class="mat-name">Teoría musical</span>
+          <i class="ti ti-chevron-right" style="font-size:14px;color:var(--muted)"></i>
+        </div>
+      </div>
+
+      <!-- Gráfico prácticas -->
+      <div class="card" style="padding:14px 16px">
+        <span class="sec-label" style="margin-bottom:12px">Práctica — últimas 6 semanas</span>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-fill" style="height:60%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:100%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:40%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:80%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:33%"></div></div>
+          <div class="bar-col"><div class="bar-fill current" style="height:72%"></div></div>
+        </div>
+        <div class="bar-labels">
+          <span>S1</span><span>S2</span><span>S3</span>
+          <span>S4</span><span>S5</span><span>S6</span>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a class="ni" href="index.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="#"><i class="ti ti-search"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="qml.html"><i class="ti ti-notebook"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
+      <a class="ni on" href="perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
+    </nav>
+
+  </div>
+</div>
+</body>
+</html>
