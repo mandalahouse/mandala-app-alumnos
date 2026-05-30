@@ -136,7 +136,7 @@ html, body {
 /* ── Body scroll ── */
 .body {
   flex: 1; overflow-y: auto;
-  padding: 14px 18px 24px;
+  padding: 14px 18px 90px;
   display: flex; flex-direction: column;
   gap: 12px;
   scrollbar-width: none;
@@ -673,7 +673,13 @@ textarea:focus { background: #f0fcfa; }
   padding: 8px 28px 20px;
   display: flex; justify-content: space-around;
   border-top: 1px solid var(--border2);
-  background: var(--bg); flex-shrink: 0;
+  background: var(--bg);
+  position: fixed;
+  bottom: 0;
+  left: 0; right: 0;
+  max-width: 430px;
+  margin: 0 auto;
+  z-index: 100;
 }
 .ni {
   display: flex; flex-direction: column;
