@@ -10,11 +10,6 @@
 <div class="screen">
   <div class="screen-inner">
 
-    <div class="sbar">
-      <span class="stime">09:41</span>
-      <div class="sicons"><div class="sb"></div><div class="sb"></div><div class="sb"></div></div>
-    </div>
-
     <div class="topnav">
       <div style="flex:1">
         <div class="wordmark"><span class="dim">MANDALA </span>AGENDA</div>
@@ -24,7 +19,6 @@
 
     <div class="body">
 
-      <!-- Calendario -->
       <div class="cal-wrap">
         <div class="cal-header">
           <span class="cal-month">Mayo 2026</span>
@@ -40,7 +34,6 @@
         <div class="cal-grid" id="calGrid"></div>
       </div>
 
-      <!-- Próximas clases -->
       <div>
         <span class="sec-label">Próximas clases</span>
 
@@ -58,7 +51,7 @@
             <div class="cc-title">Ensamble de cuerdas</div>
             <div class="cc-teacher">Prof. García</div>
           </div>
-          <i class="ti ti-chevron-right" style="font-size:14px;color:var(--muted);flex-shrink:0"></i>
+          <i class="ti ti-chevron-right" style="font-size:21px;color:var(--muted);flex-shrink:0"></i>
         </div>
 
         <div class="class-card">
@@ -75,7 +68,7 @@
             <div class="cc-title">Clase individual</div>
             <div class="cc-teacher">Prof. Martínez</div>
           </div>
-          <i class="ti ti-chevron-right" style="font-size:14px;color:var(--muted);flex-shrink:0"></i>
+          <i class="ti ti-chevron-right" style="font-size:21px;color:var(--muted);flex-shrink:0"></i>
         </div>
 
         <div class="class-card">
@@ -92,10 +85,10 @@
             <div class="cc-title">Ensamble de cuerdas</div>
             <div class="cc-teacher">Prof. García</div>
           </div>
-          <i class="ti ti-chevron-right" style="font-size:14px;color:var(--muted);flex-shrink:0"></i>
+          <i class="ti ti-chevron-right" style="font-size:21px;color:var(--muted);flex-shrink:0"></i>
         </div>
-
       </div>
+
     </div>
 
     <nav class="nav">
@@ -112,15 +105,11 @@
 <script>
   const today = 29;
   const marked = [4, 6, 11, 18, 25];
-  // Mayo 2026 empieza un viernes (índice 4 en semana LU–DO)
-  const offset = 4;
+  const offset = 4; // Mayo 2026 empieza en viernes
   const totalDays = 31;
   const grid = document.getElementById('calGrid');
 
-  for (let i = 0; i < offset; i++) {
-    const blank = document.createElement('div');
-    grid.appendChild(blank);
-  }
+  for (let i = 0; i < offset; i++) grid.appendChild(document.createElement('div'));
 
   for (let d = 1; d <= totalDays; d++) {
     const cell = document.createElement('div');
