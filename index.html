@@ -13,7 +13,6 @@
     <div class="topnav">
       <div style="flex:1">
         <div class="wordmark"><span class="dim">MANDALA </span>ENSAMBLES</div>
-        <div class="topnav-sub">bienvenido/a de vuelta</div>
       </div>
     </div>
 
@@ -21,7 +20,7 @@
 
       <div class="hero">
         <div class="hero-ghost">HOME</div>
-        <div class="hero-eyebrow">// Jueves 29 may 2026</div>
+        <div class="hero-eyebrow" id="heroDate"></div>
         <div class="hero-title">HOLA, <span class="acc">ALUMNO</span></div>
         <div class="hero-sub">Tenés 1 clase esta semana · 2/3 prácticas cumplidas</div>
       </div>
@@ -78,5 +77,13 @@
 
   </div>
 </div>
+
+<script>
+  const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  const hoy = new Date();
+  document.getElementById('heroDate').textContent =
+    '// ' + dias[hoy.getDay()] + ' ' + hoy.getDate() + ' ' + meses[hoy.getMonth()] + ' ' + hoy.getFullYear();
+</script>
 </body>
 </html>
