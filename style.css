@@ -136,7 +136,7 @@ html, body {
 /* ── Body scroll ── */
 .body {
   flex: 1; overflow-y: auto;
-  padding: 20px 22px 100px;
+  padding: 20px 20px 100px;
   display: flex; flex-direction: column;
   gap: 20px;
   scrollbar-width: none;
