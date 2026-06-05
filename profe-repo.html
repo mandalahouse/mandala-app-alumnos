@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Mandala — Repositorio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="screen">
+  <div class="screen-inner">
+
+    <div class="topnav">
+      <a class="back-btn" href="profe-repo-materia.html"><i class="ti ti-arrow-left"></i></a>
+      <div style="flex:1">
+        <div class="wordmark"><span class="dim">MANDALA </span>CONTENIDO</div>
+        <div class="topnav-sub" id="repoSub">Guitarra clásica</div>
+      </div>
+      <span class="profe-badge">PROFE</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Objetivo -->
+      <div class="repo-card" data-curso="guitarra">
+        <div class="repo-card-head">
+          <div class="repo-card-icon objetivo"><i class="ti ti-target"></i></div>
+          <div style="flex:1">
+            <div class="repo-card-title">Objetivo del mes</div>
+            <div class="repo-card-curso">Guitarra clásica</div>
+          </div>
+          <i class="ti ti-pencil" style="font-size:14px;color:var(--muted)"></i>
+        </div>
+        <div class="repo-card-body">
+          Dominar el cambio de posición en los compases 8–12 del Estudio nº3. Foco en la independencia de dedos y precisión rítmica a 80 bpm.
+        </div>
+      </div>
+
+      <!-- Ejercicio -->
+      <div class="repo-card" data-curso="guitarra">
+        <div class="repo-card-head">
+          <div class="repo-card-icon ejercicio"><i class="ti ti-music"></i></div>
+          <div style="flex:1">
+            <div class="repo-card-title">Ejercicio de la semana</div>
+            <div class="repo-card-curso">Guitarra clásica</div>
+          </div>
+          <i class="ti ti-pencil" style="font-size:14px;color:var(--muted)"></i>
+        </div>
+        <div class="repo-card-body">
+          Escala de Do mayor en 3 octavas. Primero con negras a 60 bpm, luego corcheas. Alternar ligado y picado. 15 min diarios.
+        </div>
+      </div>
+
+      <!-- Nota clase -->
+      <div class="repo-card" data-curso="guitarra">
+        <div class="repo-card-head">
+          <div class="repo-card-icon nota"><i class="ti ti-notes"></i></div>
+          <div style="flex:1">
+            <div class="repo-card-title">Nota de clase — 28 may</div>
+            <div class="repo-card-curso">Guitarra clásica</div>
+          </div>
+          <i class="ti ti-pencil" style="font-size:14px;color:var(--muted)"></i>
+        </div>
+        <div class="repo-card-body">
+          Trabajamos el fraseo del segundo movimiento. Varios alumnos tienen dificultades con el silencio de corchea en el compás 5. Para la próxima: ejercicio de punto de apoyo.
+        </div>
+      </div>
+
+      <!-- Piano -->
+      <div class="repo-card" data-curso="piano">
+        <div class="repo-card-head">
+          <div class="repo-card-icon objetivo"><i class="ti ti-target"></i></div>
+          <div style="flex:1">
+            <div class="repo-card-title">Objetivo del mes</div>
+            <div class="repo-card-curso">Piano</div>
+          </div>
+          <i class="ti ti-pencil" style="font-size:14px;color:var(--muted)"></i>
+        </div>
+        <div class="repo-card-body">
+          Independencia de manos en el vals nº2. Lograr tocar la melodía con la derecha y el acompañamiento con la izquierda de forma fluida a 70 bpm.
+        </div>
+      </div>
+
+      <!-- Botón agregar contenido general -->
+      <button class="repo-add-btn" data-curso="guitarra" onclick="alert('Próximamente: agregar contenido')">
+        <i class="ti ti-plus"></i>
+        Agregar contenido
+      </button>
+
+      <!-- Indicaciones por alumno -->
+      <div data-curso="guitarra">
+        <span class="sec-label">Indicaciones por alumno</span>
+        <div style="display:flex;flex-direction:column;gap:8px">
+
+          <div class="repo-alumno-card">
+            <div class="repo-alumno-header">
+              <div class="alumno-avatar" style="width:34px;height:34px;font-size:14px">L</div>
+              <div style="flex:1">
+                <div class="repo-alumno-name">Lucía Martínez</div>
+                <div class="repo-alumno-meta">Actualizado hace 2 días</div>
+              </div>
+              <i class="ti ti-pencil" style="font-size:14px;color:var(--muted)"></i>
+            </div>
+            <div class="repo-alumno-body">
+              Trabajar el rubato en los compases 3–6. Tiene tendencia a acelerar. Recordarle que escuche antes de tocar.
+            </div>
+          </div>
+
+          <div class="repo-alumno-card">
+            <div class="repo-alumno-header">
+              <div class="alumno-avatar" style="width:34px;height:34px;font-size:14px">T</div>
+              <div style="flex:1">
+                <div class="repo-alumno-name">Tomás Rodríguez</div>
+                <div class="repo-alumno-meta">Actualizado hace 1 semana</div>
+              </div>
+              <i class="ti ti-pencil" style="font-size:14px;color:var(--muted)"></i>
+            </div>
+            <div class="repo-alumno-body">
+              Necesita reforzar la postura de la mano izquierda. Ejercicio de barré en primer traste, 10 min diarios. No avanzar repertorio hasta consolidar.
+            </div>
+          </div>
+
+          <div class="repo-alumno-card">
+            <div class="repo-alumno-header">
+              <div class="alumno-avatar" style="width:34px;height:34px;font-size:14px">M</div>
+              <div style="flex:1">
+                <div class="repo-alumno-name">Martina Sosa</div>
+                <div class="repo-alumno-meta">Sin indicaciones aún</div>
+              </div>
+              <i class="ti ti-pencil" style="font-size:14px;color:var(--muted)"></i>
+            </div>
+            <div class="repo-alumno-body repo-alumno-empty">
+              + Agregar indicación para este alumno
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a class="ni" href="profe-home.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-curso.html"><i class="ti ti-users"></i><div class="ni-dot"></div></a>
+      <a class="ni on" href="profe-repo-materia.html"><i class="ti ti-books"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
+    </nav>
+
+  </div>
+</div>
+<script>
+  const cursos = { guitarra: 'Guitarra clásica', piano: 'Piano inicial', ensamble: 'Ensamble de cuerdas' };
+  const params = new URLSearchParams(window.location.search);
+  const curso = params.get('curso') || 'guitarra';
+  // Subtítulo
+  if (cursos[curso]) document.getElementById('repoSub').textContent = cursos[curso];
+  // Filtrar cards y bloques por curso
+  document.querySelectorAll('[data-curso]').forEach(el => {
+    el.style.display = (!el.dataset.curso || el.dataset.curso === curso) ? 'block' : 'none';
+  });
+</script>
+</body>
+</html>

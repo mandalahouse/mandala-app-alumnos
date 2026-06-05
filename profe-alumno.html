@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Mandala — Alumno</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="screen">
+  <div class="screen-inner">
+
+    <div class="topnav">
+      <a class="back-btn" href="profe-curso.html"><i class="ti ti-arrow-left"></i></a>
+      <div style="flex:1">
+        <div class="wordmark"><span class="dim">MANDALA </span>ENSAMBLES</div>
+        <div class="topnav-sub">Guitarra clásica</div>
+      </div>
+      <span class="profe-badge">PROFE</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Perfil alumno -->
+      <div class="hero" style="display:flex;align-items:center;gap:14px">
+        <div class="hero-ghost">ALU</div>
+        <div class="avatar"><i class="ti ti-user"></i></div>
+        <div style="position:relative;z-index:1;flex:1">
+          <div class="pname">LUCÍA<br><span class="acc">MARTÍNEZ</span></div>
+          <div class="pemail">Guitarra clásica · nivel intermedio</div>
+        </div>
+        <div style="position:relative;z-index:1;text-align:right">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#ff6b2b;line-height:1">7🔥</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px">racha</div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-val">12</div><div class="stat-lbl">Clases totales</div></div>
+        <div class="stat-card"><div class="stat-val">10</div><div class="stat-lbl">QMLs cargados</div></div>
+        <div class="stat-card"><div class="stat-val">85%</div><div class="stat-lbl">% prácticas</div></div>
+        <div class="stat-card"><div class="stat-val">7</div><div class="stat-lbl">Racha actual</div></div>
+      </div>
+
+      <!-- Últimos QMLs -->
+      <div>
+        <span class="sec-label">Últimos QMLs</span>
+        <div style="display:flex;flex-direction:column;gap:8px">
+
+          <a class="hist-card" href="#">
+            <div class="hist-card-top">
+              <span class="hist-materia">Guitarra clásica</span>
+              <span class="hist-date">28 / 05 / 2026</span>
+            </div>
+            <div class="hist-reflexion">Hoy descubrí que cuando toco más lento puedo darme cuenta qué nota suena rara y me da margen para pulir el sonido...</div>
+            <div class="hist-footer">
+              <span class="hist-dias">3 días planificados</span>
+              <div class="hist-prog">
+                <div class="hist-prog-bar"><div class="hist-prog-fill" style="width:100%"></div></div>
+                <span class="hist-prog-txt">3/3</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="hist-card" href="#">
+            <div class="hist-card-top">
+              <span class="hist-materia">Guitarra clásica</span>
+              <span class="hist-date">21 / 05 / 2026</span>
+            </div>
+            <div class="hist-reflexion">Me costó el cambio de posición entre el compás 8 y 9. La mano izquierda no llega a tiempo todavía...</div>
+            <div class="hist-footer">
+              <span class="hist-dias">3 días planificados</span>
+              <div class="hist-prog">
+                <div class="hist-prog-bar"><div class="hist-prog-fill" style="width:66%"></div></div>
+                <span class="hist-prog-txt">2/3</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Evolución práctica -->
+      <div class="card" style="padding:16px 18px">
+        <span class="sec-label" style="margin-bottom:12px">Práctica — últimas 6 semanas</span>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-fill" style="height:66%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:100%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:66%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:100%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:100%"></div></div>
+          <div class="bar-col"><div class="bar-fill current" style="height:85%"></div></div>
+        </div>
+        <div class="bar-labels">
+          <span>S1</span><span>S2</span><span>S3</span>
+          <span>S4</span><span>S5</span><span>S6</span>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a class="ni" href="profe-home.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
+      <a class="ni on" href="profe-curso.html"><i class="ti ti-users"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-repo-materia.html"><i class="ti ti-books"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
+    </nav>
+
+  </div>
+</div>
+</body>
+</html>

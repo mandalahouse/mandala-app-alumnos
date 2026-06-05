@@ -1542,3 +1542,270 @@ textarea:focus {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+/* ══════════════════════════════
+   PANEL PROFE
+══════════════════════════════ */
+
+/* Nav profe — mismo sistema, distinto contenido */
+.profe-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px; letter-spacing: 2px;
+  text-transform: uppercase;
+  background: rgba(30,203,168,0.15);
+  border: 1px solid rgba(30,203,168,0.3);
+  color: var(--accent);
+  border-radius: 20px; padding: 2px 8px;
+  flex-shrink: 0;
+}
+
+/* Curso card */
+.curso-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex; flex-direction: column; gap: 14px;
+  text-decoration: none;
+}
+.curso-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px;
+}
+.curso-card-icon {
+  width: 44px; height: 44px;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.curso-card-icon i { font-size: 22px; color: var(--accent); }
+.curso-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--text); letter-spacing: 1.5px;
+  text-transform: uppercase; line-height: 1.1;
+  flex: 1;
+}
+.curso-card-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px; color: var(--muted); margin-top: 3px;
+}
+.curso-alumnos-row {
+  display: flex; align-items: center;
+  justify-content: space-between;
+}
+.curso-alumnos-avatars {
+  display: flex; gap: -4px;
+}
+.alumno-avatar-sm {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--bg3); border: 2px solid var(--bg2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700;
+  color: var(--accent); margin-left: -6px;
+}
+.alumno-avatar-sm:first-child { margin-left: 0; }
+.alumno-avatar-sm.more {
+  background: var(--bg3); color: var(--muted); font-size: 9px;
+}
+.curso-stats {
+  display: flex; gap: 12px;
+}
+.curso-stat {
+  display: flex; flex-direction: column; align-items: flex-end;
+}
+.curso-stat-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 700; color: var(--accent); line-height: 1;
+}
+.curso-stat-lbl {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px; letter-spacing: 1px;
+  color: var(--muted); text-transform: uppercase;
+}
+.curso-prog-track {
+  height: 3px; background: var(--bg3);
+  border-radius: 3px; overflow: hidden;
+}
+.curso-prog-fill {
+  height: 100%; background: var(--accent); border-radius: 3px;
+}
+
+/* Alumno row en vista de curso */
+.alumno-row {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.alumno-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--bg3); border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 700; color: var(--accent);
+}
+.alumno-row-body { flex: 1; min-width: 0; }
+.alumno-row-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px; font-weight: 700;
+  color: var(--text); letter-spacing: 1px;
+  text-transform: uppercase; line-height: 1.1;
+}
+.alumno-row-meta {
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px; color: var(--muted); margin-top: 2px;
+}
+.alumno-row-right {
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 5px;
+}
+.alumno-prog-mini {
+  display: flex; align-items: center; gap: 6px;
+}
+.alumno-prog-bar {
+  width: 50px; height: 3px;
+  background: var(--bg3); border-radius: 3px; overflow: hidden;
+}
+.alumno-prog-bar-fill {
+  height: 100%; background: var(--accent); border-radius: 3px;
+}
+.alumno-prog-txt {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; color: var(--accent);
+}
+.alumno-status {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; letter-spacing: 0.5px;
+}
+.alumno-status.ok   { color: var(--accent); opacity: 0.7; }
+.alumno-status.warn { color: #f59e0b; }
+.alumno-status.late { color: #ef4444; }
+
+/* Repositorio */
+.repo-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  text-decoration: none;
+}
+.repo-card-head {
+  background: var(--bg3);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px;
+}
+.repo-card-icon {
+  width: 34px; height: 34px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.repo-card-icon i { font-size: 18px; }
+.repo-card-icon.objetivo { background: rgba(30,203,168,0.15); }
+.repo-card-icon.objetivo i { color: var(--accent); }
+.repo-card-icon.ejercicio { background: rgba(76,169,212,0.15); }
+.repo-card-icon.ejercicio i { color: #4ca9d4; }
+.repo-card-icon.nota { background: rgba(245,158,11,0.12); }
+.repo-card-icon.nota i { color: #f59e0b; }
+.repo-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px; font-weight: 700;
+  color: var(--text2); letter-spacing: 1.5px;
+  text-transform: uppercase; flex: 1;
+}
+.repo-card-curso {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; letter-spacing: 1px;
+  color: var(--muted); text-transform: uppercase;
+}
+.repo-card-body {
+  padding: 12px 16px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px; color: var(--text2);
+  line-height: 1.6;
+}
+.repo-add-btn {
+  width: 100%;
+  background: transparent;
+  border: 1.5px dashed rgba(30,203,168,0.25);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(30,203,168,0.4);
+  cursor: pointer;
+}
+.repo-add-btn i { font-size: 20px; }
+
+/* Alerta actividad reciente profe */
+.profe-alerta {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
+}
+.profe-alerta-row {
+  padding: 12px 14px;
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.profe-alerta-row:last-child { border-bottom: none; }
+.profe-alerta-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.profe-alerta-dot.qml    { background: var(--accent); }
+.profe-alerta-dot.warn   { background: #f59e0b; }
+.profe-alerta-dot.late   { background: #ef4444; }
+.profe-alerta-txt {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px; color: var(--text2); flex: 1;
+}
+.profe-alerta-txt span { color: var(--accent); }
+.profe-alerta-time {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; color: var(--muted); letter-spacing: 0.5px;
+}
+
+/* ── Indicaciones por alumno en repositorio ── */
+.repo-alumno-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.repo-alumno-header {
+  padding: 12px 14px;
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg3);
+}
+.repo-alumno-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--text2); letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.repo-alumno-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; color: var(--muted);
+  letter-spacing: 0.5px; margin-top: 2px;
+}
+.repo-alumno-body {
+  padding: 12px 14px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px; color: var(--text2);
+  line-height: 1.6;
+}
+.repo-alumno-empty {
+  color: rgba(30,203,168,0.35);
+  font-style: italic;
+  cursor: pointer;
+}

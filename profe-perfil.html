@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Mandala — Perfil Profe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="screen">
+  <div class="screen-inner">
+
+    <div class="topnav">
+      <div style="flex:1">
+        <div class="wordmark"><span class="dim">MANDALA </span>PERFIL</div>
+        <div class="topnav-sub">panel docente</div>
+      </div>
+      <span class="profe-badge">PROFE</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Avatar + nombre -->
+      <div class="hero" style="display:flex;align-items:center;gap:14px">
+        <div class="hero-ghost">PRF</div>
+        <div class="avatar"><i class="ti ti-user"></i></div>
+        <div style="position:relative;z-index:1;flex:1">
+          <div class="pname">PROF.<br><span class="acc">GARCÍA</span></div>
+          <div class="pemail">garcia@mandala.edu.ar</div>
+        </div>
+        <button class="outline-btn" style="position:relative;z-index:1">Editar</button>
+      </div>
+
+      <!-- Stats globales -->
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-val">3</div><div class="stat-lbl">Cursos activos</div></div>
+        <div class="stat-card"><div class="stat-val">14</div><div class="stat-lbl">Alumnos totales</div></div>
+        <div class="stat-card"><div class="stat-val">68%</div><div class="stat-lbl">Práctica promedio</div></div>
+        <div class="stat-card"><div class="stat-val">42</div><div class="stat-lbl">QMLs esta semana</div></div>
+      </div>
+
+      <!-- Cursos a cargo -->
+      <div class="card">
+        <div class="card-head">
+          <div><div class="ctitle">Cursos a cargo</div></div>
+        </div>
+        <div class="mat-row">
+          <div class="mat-ico"><i class="ti ti-guitar-pick"></i></div>
+          <div style="flex:1">
+            <span class="mat-name">Guitarra clásica</span>
+            <div style="font-family:'Barlow',sans-serif;font-size:12px;color:var(--muted);margin-top:2px">8 alumnos · mar y jue</div>
+          </div>
+          <i class="ti ti-chevron-right" style="font-size:21px;color:var(--muted)"></i>
+        </div>
+        <div class="mat-row">
+          <div class="mat-ico"><i class="ti ti-piano"></i></div>
+          <div style="flex:1">
+            <span class="mat-name">Piano inicial</span>
+            <div style="font-family:'Barlow',sans-serif;font-size:12px;color:var(--muted);margin-top:2px">3 alumnos · lun y mié</div>
+          </div>
+          <i class="ti ti-chevron-right" style="font-size:21px;color:var(--muted)"></i>
+        </div>
+        <div class="mat-row">
+          <div class="mat-ico"><i class="ti ti-users"></i></div>
+          <div style="flex:1">
+            <span class="mat-name">Ensamble de cuerdas</span>
+            <div style="font-family:'Barlow',sans-serif;font-size:12px;color:var(--muted);margin-top:2px">12 alumnos · mié</div>
+          </div>
+          <i class="ti ti-chevron-right" style="font-size:21px;color:var(--muted)"></i>
+        </div>
+      </div>
+
+      <!-- Práctica promedio alumnos últimas 6 semanas -->
+      <div class="card" style="padding:16px 18px">
+        <span class="sec-label" style="margin-bottom:12px">Práctica promedio alumnos — 6 semanas</span>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-fill" style="height:55%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:70%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:60%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:80%"></div></div>
+          <div class="bar-col"><div class="bar-fill" style="height:65%"></div></div>
+          <div class="bar-col"><div class="bar-fill current" style="height:68%"></div></div>
+        </div>
+        <div class="bar-labels">
+          <span>S1</span><span>S2</span><span>S3</span>
+          <span>S4</span><span>S5</span><span>S6</span>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a class="ni" href="profe-home.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-curso.html"><i class="ti ti-users"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-repo-materia.html"><i class="ti ti-books"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
+      <a class="ni on" href="profe-perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
+    </nav>
+
+  </div>
+</div>
+</body>
+</html>

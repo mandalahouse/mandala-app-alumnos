@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Mandala — Panel Profe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="screen">
+  <div class="screen-inner">
+
+    <div class="topnav">
+      <div style="flex:1">
+        <div class="wordmark"><span class="dim">MANDALA </span>ENSAMBLES</div>
+        <div class="topnav-sub">panel docente</div>
+      </div>
+      <span class="profe-badge">PROFE</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-ghost">PRF</div>
+        <div class="hero-eyebrow" id="heroDate"></div>
+        <div class="hero-title">HOLA, <span class="acc">GARCÍA</span></div>
+        <div class="hero-sub">3 cursos activos · próxima clase hoy</div>
+      </div>
+
+      <!-- Próxima clase -->
+      <a class="proxima-card" href="agenda.html">
+        <div class="proxima-left">
+          <div class="proxima-fecha">
+            <span class="proxima-dow">MIÉ</span>
+            <span class="proxima-num">11</span>
+            <span class="proxima-mon">JUN</span>
+          </div>
+        </div>
+        <div class="proxima-body">
+          <div class="proxima-eyebrow">
+            <span class="proxima-tag">ENSAMBLE</span>
+            <span class="proxima-countdown">en 6 días</span>
+          </div>
+          <div class="proxima-titulo">Ensamble de cuerdas</div>
+          <div class="proxima-sub">8 alumnos · 18:30 hs</div>
+        </div>
+        <i class="ti ti-chevron-right" style="font-size:18px;color:var(--muted);flex-shrink:0"></i>
+      </a>
+
+      <!-- Actividad reciente alumnos -->
+      <div>
+        <span class="sec-label">Actividad reciente</span>
+        <div class="profe-alerta">
+          <div class="profe-alerta-row">
+            <div class="profe-alerta-dot qml"></div>
+            <span class="profe-alerta-txt"><span>Lucía M.</span> cargó un nuevo QML · Guitarra</span>
+            <span class="profe-alerta-time">hace 1h</span>
+          </div>
+          <div class="profe-alerta-row">
+            <div class="profe-alerta-dot warn"></div>
+            <span class="profe-alerta-txt"><span>Tomás R.</span> no practicó en 5 días</span>
+            <span class="profe-alerta-time">hoy</span>
+          </div>
+          <div class="profe-alerta-row">
+            <div class="profe-alerta-dot qml"></div>
+            <span class="profe-alerta-txt"><span>Martina S.</span> completó su semana completa 🔥</span>
+            <span class="profe-alerta-time">ayer</span>
+          </div>
+          <div class="profe-alerta-row">
+            <div class="profe-alerta-dot late"></div>
+            <span class="profe-alerta-txt"><span>Nico P.</span> no registró QML en 2 semanas</span>
+            <span class="profe-alerta-time">ayer</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mis cursos -->
+      <div>
+        <span class="sec-label">Mis cursos</span>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a class="curso-card" href="profe-curso.html">
+            <div class="curso-card-top">
+              <div class="curso-card-icon"><i class="ti ti-guitar-pick"></i></div>
+              <div style="flex:1">
+                <div class="curso-card-title">Guitarra clásica</div>
+                <div class="curso-card-sub">Nivel intermedio · mar y jue</div>
+              </div>
+              <i class="ti ti-chevron-right" style="font-size:16px;color:var(--muted)"></i>
+            </div>
+            <div class="curso-alumnos-row">
+              <div class="curso-alumnos-avatars">
+                <div class="alumno-avatar-sm">L</div>
+                <div class="alumno-avatar-sm">T</div>
+                <div class="alumno-avatar-sm">M</div>
+                <div class="alumno-avatar-sm">N</div>
+                <div class="alumno-avatar-sm more">+4</div>
+              </div>
+              <div class="curso-stats">
+                <div class="curso-stat">
+                  <span class="curso-stat-val">8</span>
+                  <span class="curso-stat-lbl">alumnos</span>
+                </div>
+                <div class="curso-stat">
+                  <span class="curso-stat-val">72%</span>
+                  <span class="curso-stat-lbl">práctica</span>
+                </div>
+              </div>
+            </div>
+            <div class="curso-prog-track">
+              <div class="curso-prog-fill" style="width:72%"></div>
+            </div>
+          </a>
+
+          <a class="curso-card" href="profe-curso.html">
+            <div class="curso-card-top">
+              <div class="curso-card-icon"><i class="ti ti-piano"></i></div>
+              <div style="flex:1">
+                <div class="curso-card-title">Piano</div>
+                <div class="curso-card-sub">Nivel inicial · lun y mié</div>
+              </div>
+              <i class="ti ti-chevron-right" style="font-size:16px;color:var(--muted)"></i>
+            </div>
+            <div class="curso-alumnos-row">
+              <div class="curso-alumnos-avatars">
+                <div class="alumno-avatar-sm">A</div>
+                <div class="alumno-avatar-sm">C</div>
+                <div class="alumno-avatar-sm">P</div>
+              </div>
+              <div class="curso-stats">
+                <div class="curso-stat">
+                  <span class="curso-stat-val">3</span>
+                  <span class="curso-stat-lbl">alumnos</span>
+                </div>
+                <div class="curso-stat">
+                  <span class="curso-stat-val">58%</span>
+                  <span class="curso-stat-lbl">práctica</span>
+                </div>
+              </div>
+            </div>
+            <div class="curso-prog-track">
+              <div class="curso-prog-fill" style="width:58%"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a class="ni on" href="profe-home.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-curso.html"><i class="ti ti-users"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-repo-materia.html"><i class="ti ti-books"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
+    </nav>
+
+  </div>
+</div>
+<script>
+  const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  const hoy = new Date();
+  document.getElementById('heroDate').textContent =
+    '// ' + dias[hoy.getDay()] + ' ' + hoy.getDate() + ' ' + meses[hoy.getMonth()] + ' ' + hoy.getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Mandala — Agenda Profe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="screen">
+  <div class="screen-inner">
+
+    <div class="topnav">
+      <div style="flex:1">
+        <div class="wordmark"><span class="dim">MANDALA </span>AGENDA</div>
+        <div class="topnav-sub" id="agendaSub"></div>
+      </div>
+      <span class="profe-badge">PROFE</span>
+    </div>
+
+    <div class="body">
+
+      <!-- Calendario -->
+      <div class="cal-wrap">
+        <div class="cal-header">
+          <span class="cal-month" id="calMonth"></span>
+          <div class="cal-nav">
+            <div class="cal-btn"><i class="ti ti-chevron-left"></i></div>
+            <div class="cal-btn"><i class="ti ti-chevron-right"></i></div>
+          </div>
+        </div>
+        <div class="cal-dow">
+          <span>LU</span><span>MA</span><span>MI</span>
+          <span>JU</span><span>VI</span><span>SA</span><span>DO</span>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+
+      <!-- Clases de la semana -->
+      <div>
+        <span class="sec-label">Esta semana</span>
+
+        <div class="class-card">
+          <div class="cc-date">
+            <span class="cc-dow">MAR</span>
+            <span class="cc-num">10</span>
+            <span class="cc-mon">JUN</span>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+              <span class="cc-tag">GUITARRA</span>
+              <span class="cc-time">17:00</span>
+            </div>
+            <div class="cc-title">Guitarra clásica</div>
+            <div class="cc-teacher">8 alumnos · nivel intermedio</div>
+          </div>
+          <i class="ti ti-chevron-right" style="font-size:21px;color:var(--muted);flex-shrink:0"></i>
+        </div>
+
+        <div class="class-card">
+          <div class="cc-date">
+            <span class="cc-dow">MIÉ</span>
+            <span class="cc-num">11</span>
+            <span class="cc-mon">JUN</span>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+              <span class="cc-tag">ENSAMBLE</span>
+              <span class="cc-time">18:30</span>
+            </div>
+            <div class="cc-title">Ensamble de cuerdas</div>
+            <div class="cc-teacher">12 alumnos · todos los niveles</div>
+          </div>
+          <i class="ti ti-chevron-right" style="font-size:21px;color:var(--muted);flex-shrink:0"></i>
+        </div>
+
+        <div class="class-card">
+          <div class="cc-date">
+            <span class="cc-dow">JUE</span>
+            <span class="cc-num">12</span>
+            <span class="cc-mon">JUN</span>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+              <span class="cc-tag">GUITARRA</span>
+              <span class="cc-time">17:00</span>
+            </div>
+            <div class="cc-title">Guitarra clásica</div>
+            <div class="cc-teacher">8 alumnos · nivel intermedio</div>
+          </div>
+          <i class="ti ti-chevron-right" style="font-size:21px;color:var(--muted);flex-shrink:0"></i>
+        </div>
+
+        <div class="class-card">
+          <div class="cc-date">
+            <span class="cc-dow">VIE</span>
+            <span class="cc-num">13</span>
+            <span class="cc-mon">JUN</span>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+              <span class="cc-tag">PIANO</span>
+              <span class="cc-time">16:00</span>
+            </div>
+            <div class="cc-title">Piano inicial</div>
+            <div class="cc-teacher">3 alumnos · nivel inicial</div>
+          </div>
+          <i class="ti ti-chevron-right" style="font-size:21px;color:var(--muted);flex-shrink:0"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a class="ni" href="profe-home.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-curso.html"><i class="ti ti-users"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-repo-materia.html"><i class="ti ti-books"></i><div class="ni-dot"></div></a>
+      <a class="ni on" href="profe-agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="profe-perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
+    </nav>
+
+  </div>
+</div>
+<script>
+  const ahora = new Date();
+  const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  let viewYear = ahora.getFullYear(), viewMonth = ahora.getMonth();
+  const marked = [10, 11, 12, 13, 17, 18, 19, 24, 25, 26];
+
+  function renderCal() {
+    const today = ahora.getDate();
+    const isCurrentMonth = viewYear === ahora.getFullYear() && viewMonth === ahora.getMonth();
+    const totalDays = new Date(viewYear, viewMonth + 1, 0).getDate();
+    let startDay = new Date(viewYear, viewMonth, 1).getDay();
+    startDay = startDay === 0 ? 6 : startDay - 1;
+    document.getElementById('calMonth').textContent = meses[viewMonth] + ' ' + viewYear;
+    document.getElementById('agendaSub').textContent = meses[viewMonth].toLowerCase() + ' ' + viewYear;
+    const grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+    for (let i = 0; i < startDay; i++) grid.appendChild(document.createElement('div'));
+    for (let d = 1; d <= totalDays; d++) {
+      const cell = document.createElement('div');
+      cell.className = 'cal-day' + (isCurrentMonth && d < today ? ' past' : '') + (isCurrentMonth && d === today ? ' today' : '');
+      const num = document.createElement('span'); num.textContent = d; cell.appendChild(num);
+      if (marked.includes(d)) { const dot = document.createElement('div'); dot.className = 'cal-dot'; cell.appendChild(dot); }
+      grid.appendChild(cell);
+    }
+  }
+  document.querySelectorAll('.cal-btn')[0].addEventListener('click', () => { if (viewMonth===0){viewMonth=11;viewYear--;}else viewMonth--; renderCal(); });
+  document.querySelectorAll('.cal-btn')[1].addEventListener('click', () => { if (viewMonth===11){viewMonth=0;viewYear++;}else viewMonth++; renderCal(); });
+  renderCal();
+</script>
+</body>
+</html>
