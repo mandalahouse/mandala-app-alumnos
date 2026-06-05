@@ -11,12 +11,22 @@
   <div class="screen-inner">
 
     <div class="topnav">
-      <a class="back-btn" href="index.html"><i class="ti ti-arrow-left"></i></a>
-      <span class="wordmark"><span class="dim">MANDALA </span>ENSAMBLES</span>
+      <a class="back-btn" href="qml-materia.html"><i class="ti ti-arrow-left"></i></a>
+      <div style="flex:1">
+        <div class="wordmark"><span class="dim">MANDALA </span>ENSAMBLES</div>
+        <div class="topnav-sub" id="materiaLabel">Guitarra clásica</div>
+      </div>
       <button class="save-btn" id="saveBtn">Guardar</button>
     </div>
 
-    <div class="body">
+    <!-- Tabs -->
+    <div class="qml-tabs">
+      <a class="qml-tab on" id="tabNuevo" href="#" onclick="showTab('nuevo');return false;">Nuevo</a>
+      <a class="qml-tab" id="tabHistorial" href="#" onclick="showTab('historial');return false;">Historial</a>
+    </div>
+
+    <!-- Panel NUEVO -->
+    <div id="panelNuevo" class="body">
 
       <div class="page-hero">
         <div class="hero-ghost">QML</div>
@@ -109,14 +119,92 @@
             </div>
           </div>
         </div>
-      </div>
+      <!-- Botón guardar flotante -->
+      <button class="qml-save-fab" id="saveFab" onclick="guardarQML()">
+        <i class="ti ti-device-floppy"></i>
+        <span>Guardar QML</span>
+      </button>
 
+    </div>
+
+    <!-- Toast confirmación -->
+    <div class="save-toast" id="saveToast">
+      <i class="ti ti-circle-check"></i>
+      <span>QML guardado correctamente</span>
+    </div>
+
+    <!-- Panel HISTORIAL -->
+    <div id="panelHistorial" class="body" style="display:none">
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+
+        <a class="hist-card" href="qml-detalle.html?materia=guitarra" data-materia="guitarra">
+          <div class="hist-card-top">
+            <span class="hist-materia">Guitarra clásica</span>
+            <span class="hist-date">28 / 05 / 2026</span>
+          </div>
+          <div class="hist-reflexion">Hoy descubrí que cuando toco más lento puedo darme cuenta qué nota suena rara y me da margen para pulir el sonido...</div>
+          <div class="hist-footer">
+            <span class="hist-dias">3 días planificados</span>
+            <div class="hist-prog">
+              <div class="hist-prog-bar"><div class="hist-prog-fill" style="width:66%"></div></div>
+              <span class="hist-prog-txt">2/3</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="hist-card" href="qml-detalle.html?materia=guitarra" data-materia="guitarra">
+          <div class="hist-card-top">
+            <span class="hist-materia">Guitarra clásica</span>
+            <span class="hist-date">21 / 05 / 2026</span>
+          </div>
+          <div class="hist-reflexion">Me costó mucho el cambio de posición entre el compás 8 y 9. La mano izquierda no llega a tiempo...</div>
+          <div class="hist-footer">
+            <span class="hist-dias">4 días planificados</span>
+            <div class="hist-prog">
+              <div class="hist-prog-bar"><div class="hist-prog-fill" style="width:100%"></div></div>
+              <span class="hist-prog-txt">4/4</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="hist-card" href="qml-detalle.html?materia=piano" data-materia="piano">
+          <div class="hist-card-top">
+            <span class="hist-materia">Piano</span>
+            <span class="hist-date">20 / 05 / 2026</span>
+          </div>
+          <div class="hist-reflexion">Trabajamos la independencia de manos. La derecha ya fluye sola pero la izquierda todavía requiere atención consciente...</div>
+          <div class="hist-footer">
+            <span class="hist-dias">2 días planificados</span>
+            <div class="hist-prog">
+              <div class="hist-prog-bar"><div class="hist-prog-fill" style="width:50%"></div></div>
+              <span class="hist-prog-txt">1/2</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="hist-card" href="qml-detalle.html?materia=guitarra" data-materia="guitarra">
+          <div class="hist-card-top">
+            <span class="hist-materia">Guitarra clásica</span>
+            <span class="hist-date">14 / 05 / 2026</span>
+          </div>
+          <div class="hist-reflexion">Primera clase con el estudio nº3. Más difícil de lo esperado pero el profe dice que es normal al principio...</div>
+          <div class="hist-footer">
+            <span class="hist-dias">3 días planificados</span>
+            <div class="hist-prog">
+              <div class="hist-prog-bar"><div class="hist-prog-fill" style="width:33%"></div></div>
+              <span class="hist-prog-txt">1/3</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
     </div>
 
     <nav class="nav">
       <a class="ni" href="index.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
-      <a class="ni" href="#"><i class="ti ti-search"></i><div class="ni-dot"></div></a>
-      <a class="ni on" href="qml.html"><i class="ti ti-notebook"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="checkin.html"><i class="ti ti-checkbox"></i><div class="ni-dot"></div></a>
+      <a class="ni on" href="qml-materia.html"><i class="ti ti-notebook"></i><div class="ni-dot"></div></a>
       <a class="ni" href="agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
       <a class="ni" href="perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
     </nav>
@@ -211,13 +299,52 @@
     this.style.display = 'none';
   });
 
-  document.getElementById('saveBtn').addEventListener('click', function() {
-    this.textContent = '✓ Guardado';
-    setTimeout(() => this.textContent = 'Guardar', 1800);
-  });
+  document.getElementById('saveBtn').addEventListener('click', guardarQML);
+
+  function guardarQML() {
+    const toast = document.getElementById('saveToast');
+    const fab = document.getElementById('saveFab');
+    // Estado guardando
+    fab.classList.add('saving');
+    fab.querySelector('span').textContent = 'Guardando...';
+    setTimeout(() => {
+      // Estado guardado
+      fab.classList.remove('saving');
+      fab.classList.add('saved');
+      fab.querySelector('span').textContent = '✓ Guardado';
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+        fab.classList.remove('saved');
+        fab.querySelector('span').textContent = 'Guardar QML';
+      }, 2500);
+    }, 600);
+  }
 
   renderDate();
   renderDays();
+
+  // Tabs
+  function showTab(tab) {
+    const isNuevo = tab === 'nuevo';
+    document.getElementById('panelNuevo').style.display    = isNuevo ? 'flex' : 'none';
+    document.getElementById('panelHistorial').style.display = isNuevo ? 'none' : 'flex';
+    document.getElementById('tabNuevo').classList.toggle('on', isNuevo);
+    document.getElementById('tabHistorial').classList.toggle('on', !isNuevo);
+  }
+  // Si viene de un detalle, abrir directo en historial
+  if (window.location.hash === '#historial') showTab('historial');
+
+  // Nombre de materia desde URL + filtro historial
+  const params = new URLSearchParams(window.location.search);
+  const materias = { guitarra: 'Guitarra clásica', piano: 'Piano', teoria: 'Teoría musical' };
+  const materia = params.get('materia');
+  if (materia && materias[materia]) {
+    document.getElementById('materiaLabel').textContent = materias[materia];
+    document.querySelectorAll('.hist-card').forEach(card => {
+      card.style.display = card.dataset.materia === materia ? 'flex' : 'none';
+    });
+  }
 </script>
 </body>
 </html>

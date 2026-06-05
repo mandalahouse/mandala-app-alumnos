@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Mandala — Check-in</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="screen">
+  <div class="screen-inner">
+
+    <div class="topnav">
+      <a class="back-btn" href="index.html"><i class="ti ti-arrow-left"></i></a>
+      <div style="flex:1">
+        <div class="wordmark"><span class="dim">MANDALA </span>ENSAMBLES</div>
+        <div class="topnav-sub" id="ciFecha"></div>
+      </div>
+    </div>
+
+    <div class="checkin-body">
+
+      <!-- Contexto del QML activo -->
+      <div class="ci-qml-ctx">
+        <div class="ci-qml-ctx-top">
+          <div class="ci-qml-materia-chip" id="ciMateriaChip">
+            <div class="tag-dot"></div>
+            <span>Guitarra clásica</span>
+          </div>
+          <a class="ci-qml-link" href="qml.html?materia=guitarra">
+            Ver QML <i class="ti ti-arrow-right"></i>
+          </a>
+        </div>
+        <div class="ci-qml-que" id="ciQue">
+          Acordes del estribillo cada 4 tiempos
+        </div>
+        <div class="ci-qml-como" id="ciComo">
+          Con metrónomo a 60 bpm · foco en Si menor
+        </div>
+      </div>
+
+      <!-- Botón principal -->
+      <div class="ci-center">
+        <div class="ci-ring" id="ciRing" onclick="toggleCheckin()">
+          <div class="ci-ring-inner">
+            <i class="ti ti-check ci-check-icon" id="ciIcon"></i>
+            <div class="ci-label-wrap" id="ciLabelWrap">
+              <span class="ci-dia-num" id="ciDiaNum">Día 2</span>
+              <span class="ci-label">Practiqué<br>hoy</span>
+            </div>
+          </div>
+        </div>
+        <div class="ci-pulse" id="ciPulse"></div>
+      </div>
+
+      <!-- Mensaje motivacional -->
+      <div class="ci-mensaje" id="ciMensaje">Tu práctica de hoy suma.</div>
+
+      <!-- Streak -->
+      <div class="ci-streak" id="ciStreak">
+        <div class="ci-streak-flame" id="ciStreakFlame">
+          <i class="ti ti-flame"></i>
+        </div>
+        <div class="ci-streak-body">
+          <div class="ci-streak-num" id="ciStreakNum">5</div>
+          <div class="ci-streak-label">días seguidos</div>
+        </div>
+        <div class="ci-streak-best">
+          <div class="ci-streak-best-label">récord</div>
+          <div class="ci-streak-best-num">12</div>
+        </div>
+      </div>
+
+      <!-- Progreso semanal del QML -->
+      <div class="ci-semana">
+        <div class="ci-semana-header">
+          <span class="ci-semana-label">Plan semanal</span>
+          <span class="ci-semana-meta" id="ciMeta">2 / 3 días</span>
+        </div>
+        <div class="ci-dias" id="ciDias"></div>
+        <div class="ci-prog-track">
+          <div class="ci-prog-fill" id="ciProgFill"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a class="ni" href="index.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
+      <a class="ni on" href="checkin.html"><i class="ti ti-checkbox"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="qml-materia.html"><i class="ti ti-notebook"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
+    </nav>
+
+  </div>
+</div>
+
+<script>
+  // QML activo simulado (esto vendría del backend)
+  const qmlActivo = {
+    materia: 'Guitarra clásica',
+    materiaKey: 'guitarra',
+    que: 'Acordes del estribillo cada 4 tiempos',
+    como: 'Con metrónomo a 60 bpm · foco en Si menor',
+    diasPlan: 3,
+    diasHechos: [0, 2], // índices lun=0…dom=6 ya marcados
+    diaActual: 3,       // "Día 3" del plan
+  };
+
+  let done = false;
+  const streakBase = 5; // vendría del backend
+
+  // Fecha
+  const diasSem = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  const meses = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  const hoy = new Date();
+  document.getElementById('ciFecha').textContent =
+    diasSem[hoy.getDay()] + ' ' + hoy.getDate() + ' ' + meses[hoy.getMonth()];
+
+  // Contexto QML
+  document.getElementById('ciMateriaChip').querySelector('span').textContent = qmlActivo.materia;
+  document.getElementById('ciQue').textContent = qmlActivo.que;
+  document.getElementById('ciComo').textContent = qmlActivo.como;
+  document.getElementById('ciQml-link') && (document.getElementById('ciQml-link').href = 'qml.html?materia=' + qmlActivo.materiaKey);
+  document.getElementById('ciDiaNum').textContent = 'Día ' + qmlActivo.diaActual;
+
+  // Semana
+  const letras = ['L','M','M','J','V','S','D'];
+  const diaHoy = hoy.getDay() === 0 ? 6 : hoy.getDay() - 1;
+
+  function renderSemana() {
+    const c = document.getElementById('ciDias');
+    c.innerHTML = '';
+    letras.forEach((d, i) => {
+      const hecho = qmlActivo.diasHechos.includes(i) || (i === diaHoy && done);
+      const isHoy = i === diaHoy;
+      const isFuture = i > diaHoy && !qmlActivo.diasHechos.includes(i);
+      const el = document.createElement('div');
+      el.className = 'ci-dia' +
+        (hecho ? ' done' : '') +
+        (isHoy ? ' hoy' : '') +
+        (isFuture ? ' future' : '');
+      el.innerHTML = '<span class="ci-dia-letra">' + d + '</span>' +
+        (hecho ? '<i class="ti ti-check ci-dia-check"></i>' : '<div class="ci-dia-dot"></div>');
+      c.appendChild(el);
+    });
+
+    const total = qmlActivo.diasHechos.length + (done ? 1 : 0);
+    const pct = Math.round(total / qmlActivo.diasPlan * 100);
+    document.getElementById('ciMeta').textContent = total + ' / ' + qmlActivo.diasPlan + ' días';
+    document.getElementById('ciProgFill').style.width = Math.min(pct, 100) + '%';
+  }
+  renderSemana();
+
+  // Toggle check-in
+  function toggleCheckin() {
+    done = !done;
+    const ring = document.getElementById('ciRing');
+    const icon = document.getElementById('ciIcon');
+    const labelWrap = document.getElementById('ciLabelWrap');
+    const msg = document.getElementById('ciMensaje');
+    const pulse = document.getElementById('ciPulse');
+
+    if (done) {
+      ring.classList.add('done');
+      icon.style.opacity = '1';
+      labelWrap.style.opacity = '0';
+      pulse.classList.add('active');
+      setTimeout(() => pulse.classList.remove('active'), 600);
+      // Streak: sumar 1 y animar
+      const streakEl = document.getElementById('ciStreakNum');
+      const newStreak = streakBase + 1;
+      streakEl.textContent = newStreak;
+      document.getElementById('ciStreak').classList.add('lit');
+      document.getElementById('ciStreakFlame').classList.add('on');
+      const frases = [
+        '¡Excelente! Seguí así 🔥',
+        '¡Día ' + qmlActivo.diaActual + ' cumplido! Imparable.',
+        newStreak + ' días seguidos. Sos constante.',
+        '¡Hábito construido! 💪',
+      ];
+      msg.textContent = frases[Math.floor(Math.random() * frases.length)];
+      msg.style.color = 'var(--accent)';
+    } else {
+      ring.classList.remove('done');
+      icon.style.opacity = '0';
+      labelWrap.style.opacity = '1';
+      document.getElementById('ciStreakNum').textContent = streakBase;
+      document.getElementById('ciStreak').classList.remove('lit');
+      document.getElementById('ciStreakFlame').classList.remove('on');
+      msg.textContent = 'Tu práctica de hoy suma.';
+      msg.style.color = '';
+    }
+    renderSemana();
+  }
+</script>
+</body>
+</html>

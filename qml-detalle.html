@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Mandala — Detalle QML</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="screen">
+  <div class="screen-inner">
+
+    <div class="topnav">
+      <a class="back-btn" id="backBtn" href="#"><i class="ti ti-arrow-left"></i></a>
+      <div style="flex:1">
+        <div class="wordmark"><span class="dim">MANDALA </span>ENSAMBLES</div>
+        <div class="topnav-sub" id="detMateria">Guitarra clásica</div>
+      </div>
+      <button class="outline-btn" id="editBtn" onclick="toggleEdit()">
+        <i class="ti ti-pencil" style="font-size:13px;margin-right:4px"></i>Editar
+      </button>
+    </div>
+
+    <div class="body">
+
+      <!-- Hero fecha -->
+      <div class="page-hero">
+        <div class="hero-ghost">QML</div>
+        <div style="position:relative;z-index:1">
+          <div class="page-tag">
+            <div class="tag-dot"></div>
+            <span class="tag-txt">registro de clase</span>
+          </div>
+          <div class="page-title">¿QUÉ<br>ME LLEVO<span class="acc">?</span></div>
+        </div>
+        <div class="date-chip">
+          <span class="dc-date" id="detFecha">28 / 05 / 2026</span>
+        </div>
+      </div>
+
+      <!-- Card 1: Reflexiones -->
+      <div class="card">
+        <div class="card-head">
+          <div class="cnum">1</div>
+          <div>
+            <div class="ctitle">Reflexiones de la clase</div>
+            <div class="csub">Ideas, insights, conceptos, dudas, descubrimientos...</div>
+          </div>
+        </div>
+        <div class="fblock">
+          <p class="det-text det-view" id="detReflexion">Hoy descubrí que cuando toco más lento puedo darme cuenta qué nota suena rara y me da margen para pulir el sonido. El profe insistió mucho en escuchar antes de corregir. Creo que eso es lo más importante de esta clase.</p>
+          <textarea class="det-edit" rows="5" style="display:none">Hoy descubrí que cuando toco más lento puedo darme cuenta qué nota suena rara y me da margen para pulir el sonido. El profe insistió mucho en escuchar antes de corregir. Creo que eso es lo más importante de esta clase.</textarea>
+        </div>
+      </div>
+
+      <!-- Card 2: Práctica -->
+      <div class="card">
+        <div class="card-head">
+          <div class="cnum">2</div>
+          <div>
+            <div class="ctitle">Práctica enfocada</div>
+            <div class="csub">Plan semanal</div>
+          </div>
+        </div>
+
+        <div class="qcq-hero">
+          <div class="qcq-title">
+            <span class="qcq-word">QUÉ</span>
+            <span class="qcq-sep">/</span>
+            <span class="qcq-word">CÓMO</span>
+            <span class="qcq-sep">/</span>
+            <span class="qcq-word acc">CUÁNDO</span>
+          </div>
+        </div>
+
+        <div class="fblock">
+          <div class="field-header">
+            <span class="field-num">01</span>
+            <span class="field-title">¿Qué voy a practicar?</span>
+          </div>
+          <p class="det-text det-view">Voy a practicar todos los acordes del estribillo cada 4 tiempos, poniendo foco en el cambio entre Si menor y Re mayor.</p>
+          <textarea class="det-edit" rows="3" style="display:none">Voy a practicar todos los acordes del estribillo cada 4 tiempos, poniendo foco en el cambio entre Si menor y Re mayor.</textarea>
+        </div>
+
+        <div class="fblock">
+          <div class="field-header">
+            <span class="field-num">02</span>
+            <span class="field-title">¿Cómo lo voy a practicar?</span>
+          </div>
+          <p class="det-text det-view">Con metrónomo a 60 bpm, haciendo foco en pulir el sonido del acorde Si menor. Primero mano derecha sola, luego junto.</p>
+          <textarea class="det-edit" rows="3" style="display:none">Con metrónomo a 60 bpm, haciendo foco en pulir el sonido del acorde Si menor. Primero mano derecha sola, luego junto.</textarea>
+        </div>
+
+        <div class="fblock">
+          <div class="field-header" style="margin-bottom:6px">
+            <span class="field-num">03</span>
+            <span class="field-title acc">¿Cuándo? Días practicados</span>
+          </div>
+
+          <!-- Días (solo lectura) -->
+          <div class="day-rows" style="margin-top:12px">
+            <div class="drow done">
+              <div class="drow-top">
+                <span class="dtag">Día 1</span>
+                <div class="dinputs">
+                  <div class="dinput"><span class="dinput-lbl">FECHA</span><span class="det-input-val">29/05/2026</span></div>
+                  <div class="dinput"><span class="dinput-lbl">HORA</span><span class="det-input-val">18:30</span></div>
+                </div>
+              </div>
+              <div class="check-row">
+                <div class="chkbox on"><i class="ti ti-check"></i></div>
+                <span class="chklabel">Práctica realizada ✓</span>
+                <span class="chktime">18:31</span>
+              </div>
+            </div>
+            <div class="drow done">
+              <div class="drow-top">
+                <span class="dtag">Día 2</span>
+                <div class="dinputs">
+                  <div class="dinput"><span class="dinput-lbl">FECHA</span><span class="det-input-val">31/05/2026</span></div>
+                  <div class="dinput"><span class="dinput-lbl">HORA</span><span class="det-input-val">10:00</span></div>
+                </div>
+              </div>
+              <div class="check-row">
+                <div class="chkbox on"><i class="ti ti-check"></i></div>
+                <span class="chklabel">Práctica realizada ✓</span>
+                <span class="chktime">10:45</span>
+              </div>
+            </div>
+            <div class="drow">
+              <div class="drow-top">
+                <span class="dtag">Día 3</span>
+                <div class="dinputs">
+                  <div class="dinput"><span class="dinput-lbl">FECHA</span><span class="det-input-val">02/06/2026</span></div>
+                  <div class="dinput"><span class="dinput-lbl">HORA</span><span class="det-input-val">19:00</span></div>
+                </div>
+              </div>
+              <div class="check-row">
+                <div class="chkbox"></div>
+                <span class="chklabel">Práctica realizada</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progreso -->
+          <div class="prog-card">
+            <div class="prog-icon"><i class="ti ti-chart-bar"></i></div>
+            <div style="flex:1;min-width:0">
+              <div class="prog-top2">
+                <span class="prog-lbl">// Cumplimiento semanal</span>
+                <span class="prog-num"><span>2</span> / 3</span>
+              </div>
+              <div class="prog-track"><div class="prog-fill" style="width:66%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="nav">
+      <a class="ni" href="index.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="checkin.html"><i class="ti ti-checkbox"></i><div class="ni-dot"></div></a>
+      <a class="ni on" href="qml-materia.html"><i class="ti ti-notebook"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
+    </nav>
+
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const materia = params.get('materia');
+  const materias = { guitarra: 'Guitarra clásica', piano: 'Piano', teoria: 'Teoría musical' };
+  if (materia && materias[materia]) {
+    document.getElementById('detMateria').textContent = materias[materia];
+  }
+  // Back button vuelve al historial de esa materia
+  document.getElementById('backBtn').href = 'qml.html?materia=' + (materia || 'guitarra') + '#historial';
+
+  // Toggle edición
+  let editMode = false;
+  function toggleEdit() {
+    editMode = !editMode;
+    const btn = document.getElementById('editBtn');
+
+    // Alternar textos y textareas
+    document.querySelectorAll('.det-view').forEach(el => el.style.display = editMode ? 'none' : 'block');
+    document.querySelectorAll('.det-edit').forEach(el => el.style.display = editMode ? 'block' : 'none');
+
+    if (editMode) {
+      btn.innerHTML = '<i class="ti ti-check" style="font-size:13px;margin-right:4px"></i>Guardar';
+      btn.style.background = 'var(--accent)';
+      btn.style.color = 'var(--dark)';
+      btn.style.border = 'none';
+    } else {
+      // Al guardar, actualizar los textos de lectura con lo editado
+      document.querySelectorAll('.det-edit').forEach((ta, i) => {
+        document.querySelectorAll('.det-view')[i].textContent = ta.value;
+      });
+      btn.innerHTML = '<i class="ti ti-pencil" style="font-size:13px;margin-right:4px"></i>Editar';
+      btn.style.background = 'transparent';
+      btn.style.color = 'var(--accent)';
+      btn.style.border = '1px solid var(--border)';
+    }
+  }
+</script>
+</body>
+</html>

@@ -13,7 +13,7 @@
     <div class="topnav">
       <div style="flex:1">
         <div class="wordmark"><span class="dim">MANDALA </span>AGENDA</div>
-        <div class="topnav-sub">mayo — junio 2026</div>
+        <div class="topnav-sub" id="agendaSub"></div>
       </div>
     </div>
 
@@ -21,7 +21,7 @@
 
       <div class="cal-wrap">
         <div class="cal-header">
-          <span class="cal-month">Mayo 2026</span>
+          <span class="cal-month" id="calMonth"></span>
           <div class="cal-nav">
             <div class="cal-btn"><i class="ti ti-chevron-left"></i></div>
             <div class="cal-btn"><i class="ti ti-chevron-right"></i></div>
@@ -93,7 +93,7 @@
 
     <nav class="nav">
       <a class="ni" href="index.html"><i class="ti ti-home"></i><div class="ni-dot"></div></a>
-      <a class="ni" href="#"><i class="ti ti-search"></i><div class="ni-dot"></div></a>
+      <a class="ni" href="checkin.html"><i class="ti ti-checkbox"></i><div class="ni-dot"></div></a>
       <a class="ni" href="qml.html"><i class="ti ti-notebook"></i><div class="ni-dot"></div></a>
       <a class="ni on" href="agenda.html"><i class="ti ti-calendar"></i><div class="ni-dot"></div></a>
       <a class="ni" href="perfil.html"><i class="ti ti-user"></i><div class="ni-dot"></div></a>
@@ -103,27 +103,60 @@
 </div>
 
 <script>
-  const today = 29;
+  const ahora = new Date();
+  const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const mesesCorto = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+
+  let viewYear = ahora.getFullYear();
+  let viewMonth = ahora.getMonth();
+
+  // Días con clases simuladas
   const marked = [4, 6, 11, 18, 25];
-  const offset = 4; // Mayo 2026 empieza en viernes
-  const totalDays = 31;
-  const grid = document.getElementById('calGrid');
 
-  for (let i = 0; i < offset; i++) grid.appendChild(document.createElement('div'));
+  function renderCal() {
+    const today = ahora.getDate();
+    const isCurrentMonth = viewYear === ahora.getFullYear() && viewMonth === ahora.getMonth();
+    const totalDays = new Date(viewYear, viewMonth + 1, 0).getDate();
+    // 0=dom…6=sáb → convertir a lun=0…dom=6
+    let startDay = new Date(viewYear, viewMonth, 1).getDay();
+    startDay = startDay === 0 ? 6 : startDay - 1;
 
-  for (let d = 1; d <= totalDays; d++) {
-    const cell = document.createElement('div');
-    cell.className = 'cal-day' + (d < today ? ' past' : '') + (d === today ? ' today' : '');
-    const num = document.createElement('span');
-    num.textContent = d;
-    cell.appendChild(num);
-    if (marked.includes(d)) {
-      const dot = document.createElement('div');
-      dot.className = 'cal-dot';
-      cell.appendChild(dot);
+    document.getElementById('calMonth').textContent = meses[viewMonth] + ' ' + viewYear;
+    document.getElementById('agendaSub').textContent = meses[viewMonth].toLowerCase() + ' — ' + meses[(viewMonth + 1) % 12].toLowerCase() + ' ' + viewYear;
+
+    const grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+
+    for (let i = 0; i < startDay; i++) grid.appendChild(document.createElement('div'));
+
+    for (let d = 1; d <= totalDays; d++) {
+      const cell = document.createElement('div');
+      const isPast = isCurrentMonth && d < today;
+      const isToday = isCurrentMonth && d === today;
+      cell.className = 'cal-day' + (isPast ? ' past' : '') + (isToday ? ' today' : '');
+      const num = document.createElement('span');
+      num.textContent = d;
+      cell.appendChild(num);
+      if (marked.includes(d)) {
+        const dot = document.createElement('div');
+        dot.className = 'cal-dot';
+        cell.appendChild(dot);
+      }
+      grid.appendChild(cell);
     }
-    grid.appendChild(cell);
   }
+
+  // Navegación meses
+  document.querySelectorAll('.cal-btn')[0].addEventListener('click', () => {
+    if (viewMonth === 0) { viewMonth = 11; viewYear--; } else viewMonth--;
+    renderCal();
+  });
+  document.querySelectorAll('.cal-btn')[1].addEventListener('click', () => {
+    if (viewMonth === 11) { viewMonth = 0; viewYear++; } else viewMonth++;
+    renderCal();
+  });
+
+  renderCal();
 </script>
 </body>
 </html>
